@@ -16,25 +16,25 @@ const NavigationBar = () => {
   return (
     <NavigationBarContainer>
       <NavigationItem hoverContent="Just the beginning!">
-        <BiHomeAlt />
+        <BiHomeAlt size={20} />
       </NavigationItem>
       <NavigationItem hoverContent="Get to know more about me.">
-        <BiUserCircle />
+        <BiUserCircle size={20} />
       </NavigationItem>
       <NavigationItem hoverContent="My work experience over the years.">
-        <BiBriefcaseAlt2 />
+        <BiBriefcaseAlt2 size={20} />
       </NavigationItem>
       <NavigationItem hoverContent="My awesome projects and ideas.">
-        <BiCategory />
+        <BiCategory size={20} />
       </NavigationItem>
       <NavigationItem hoverContent="What my collaborators said about me.">
-        <BiTrophy />
+        <BiTrophy size={20} />
       </NavigationItem>
       <NavigationItem hoverContent="Drop a message to get connected.">
-        <BiMessageAlt />
+        <BiMessageAlt size={20} />
       </NavigationItem>
       <NavigationItem>
-        <BiMoon />
+        <BiMoon size={20} />
       </NavigationItem>
       <NavigationItem>
         <AiOutlineGithub />

@@ -9,7 +9,7 @@ const NavigationItem: FC<INavigationItem> = ({ children, hoverContent }) => {
       {hoverContent ? (
         <HoverCard width={280} shadow="md" position="right" withArrow>
           <HoverCard.Target>
-            <ActionIcon color="red" size="md" radius="xl" variant="gradient">
+            <ActionIcon color="grape" size="xl" radius="xl" variant="light">
               {children}
             </ActionIcon>
           </HoverCard.Target>
@@ -18,7 +18,7 @@ const NavigationItem: FC<INavigationItem> = ({ children, hoverContent }) => {
           </HoverCard.Dropdown>
         </HoverCard>
       ) : (
-        <ActionIcon color="red" size="md" radius="xl" variant="gradient">
+        <ActionIcon color="lime" size="xl" radius="xl" variant="light">
           {children}
         </ActionIcon>
       )}
