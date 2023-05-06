@@ -75,6 +75,23 @@ const ProjectPage = () => {
                 with Paypal.
               </Text>
             </Group>
+            <Group mt="md">
+              <Badge color="green" size="md" variant="light">
+                Node JS
+              </Badge>
+              <Badge color="green" size="md" variant="light">
+                Node JS
+              </Badge>
+              <Badge color="green" size="md" variant="light">
+                Node JS
+              </Badge>
+              <Badge color="green" size="md" variant="light">
+                Node JS
+              </Badge>
+              <Badge color="green" size="md" variant="light">
+                Node JS
+              </Badge>
+            </Group>
           </Card>
         </Grid.Col>
         <Grid.Col span={6}>

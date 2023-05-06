@@ -14,9 +14,13 @@ import {
 import { SiGmail, SiLinkedin, SiGithub, SiStackoverflow } from "react-icons/si";
 import { ImQuotesLeft } from "react-icons/im";
 import { motion } from "framer-motion";
-import { BiGitBranch, BiStar } from "react-icons/bi";
+import { BiGitBranch, BiMedal, BiStar, BiTrophy } from "react-icons/bi";
+import { useRef, useState } from "react";
 
 const AboutPage = () => {
+  const cardRef: any = useRef();
+  const [focus, setFocus] = useState(false);
+
   const container = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
@@ -37,8 +41,22 @@ const AboutPage = () => {
     },
   };
 
+  const bounceTransition = {
+    y: {
+      duration: 0.4,
+      yoyo: Infinity,
+      ease: "easeOut",
+    },
+    backgroundColor: {
+      duration: 0,
+      yoyo: Infinity,
+      ease: "easeOut",
+      repeatDelay: 0.8,
+    },
+  };
+
   return (
-    <Container sx={{ height: "100vh" }}>
+    <Container style={{ minHeight: "100vh" }}>
       <Text weight={600} size={40}>
         About Me
       </Text>
@@ -48,8 +66,8 @@ const AboutPage = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.div className="item" variants={item}>
-          <Card shadow="xl" padding="sm" radius="lg" withBorder>
+        <motion.div ref={cardRef} variants={item}>
+          <Card mt={50} shadow="xl" padding="sm" radius="lg" withBorder>
             <Flex
               sx={{ marginBottom: 10 }}
               align="center"
@@ -76,52 +94,162 @@ const AboutPage = () => {
                   </Text>
                 </Flex>
               </Flex>
-              <Flex sx={{ marginLeft: 10 }} direction="row" align="center">
-                <Tooltip label="Gmail" withArrow>
-                  <ActionIcon
-                    sx={{ marginLeft: 8 }}
-                    color="red"
-                    radius="xl"
-                    variant="light"
-                    size="lg"
-                  >
-                    <SiGmail />
-                  </ActionIcon>
-                </Tooltip>
-                <Tooltip label="Linkedin" withArrow>
-                  <ActionIcon
-                    sx={{ marginLeft: 8 }}
-                    color="blue"
-                    radius="xl"
-                    variant="light"
-                    size="lg"
-                  >
-                    <SiLinkedin />
-                  </ActionIcon>
-                </Tooltip>
-                <Tooltip label="Github" withArrow>
-                  <ActionIcon
-                    sx={{ marginLeft: 8 }}
-                    color="gray"
-                    radius="xl"
-                    variant="light"
-                    size="lg"
-                  >
-                    <SiGithub />
-                  </ActionIcon>
-                </Tooltip>
-                <Tooltip label="Stackoverflow" withArrow>
-                  <ActionIcon
-                    sx={{ marginLeft: 8 }}
-                    color="orange"
-                    radius="xl"
-                    variant="light"
-                    size="lg"
-                  >
-                    <SiStackoverflow />
-                  </ActionIcon>
-                </Tooltip>
-              </Flex>
+              <motion.div variants={container}>
+                <Flex sx={{ marginLeft: 10 }} direction="row" align="center">
+                  <motion.div variants={item}>
+                    <Tooltip label="Gmail" withArrow>
+                      <ActionIcon
+                        sx={{ marginLeft: 8 }}
+                        color="red"
+                        radius="xl"
+                        variant="light"
+                        size="lg"
+                      >
+                        <SiGmail />
+                      </ActionIcon>
+                    </Tooltip>
+                  </motion.div>
+                  <motion.div variants={item}>
+                    <Tooltip label="Linkedin" withArrow>
+                      <ActionIcon
+                        sx={{ marginLeft: 8 }}
+                        color="blue"
+                        radius="xl"
+                        variant="light"
+                        size="lg"
+                      >
+                        <SiLinkedin />
+                      </ActionIcon>
+                    </Tooltip>
+                  </motion.div>
+                  <motion.div variants={item}>
+                    <Tooltip label="Github" withArrow>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "center",
+                          backgroundColor: "rgba(248, 249, 250, 1)",
+                          borderRadius: "30px",
+                          paddingLeft: "10px",
+                          marginLeft: "8px",
+                        }}
+                      >
+                        <BiGitBranch
+                          color="#868e96"
+                          style={{ marginRight: 4 }}
+                        />
+
+                        <div
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: 800,
+                            color: "#868e96",
+                          }}
+                        >
+                          863
+                        </div>
+                        <BiStar
+                          color="#868e96"
+                          style={{ marginLeft: 4, marginRight: 4 }}
+                        />
+                        <div
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: 800,
+                            color: "#868e96",
+                          }}
+                        >
+                          18
+                        </div>
+
+                        <ActionIcon
+                          color="gray"
+                          radius="xl"
+                          variant="light"
+                          size="lg"
+                        >
+                          <SiGithub />
+                        </ActionIcon>
+                      </div>
+                    </Tooltip>
+                  </motion.div>
+                  <motion.div variants={item}>
+                    <Tooltip label="Stackoverflow" withArrow>
+                      <div
+                        style={{
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "center",
+                          backgroundColor: "rgba(255, 244, 230, 1)",
+                          borderRadius: "30px",
+                          paddingLeft: "10px",
+                          marginLeft: "8px",
+                        }}
+                      >
+                        <BiTrophy color="#fd7e14" style={{ marginRight: 4 }} />
+
+                        <div
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: 800,
+                            color: "#fd7e14",
+                          }}
+                        >
+                          544
+                        </div>
+                        <BiMedal
+                          color="#fd7e14"
+                          style={{ marginLeft: 4, marginRight: 4 }}
+                        />
+                        <div
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: 800,
+                            color: "#fd7e14",
+                          }}
+                        >
+                          1
+                        </div>
+                        <BiMedal
+                          color="#fd7e14"
+                          style={{ marginLeft: 4, marginRight: 4 }}
+                        />
+                        <div
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: 800,
+                            color: "#fd7e14",
+                          }}
+                        >
+                          10
+                        </div>
+                        <BiMedal
+                          color="#fd7e14"
+                          style={{ marginLeft: 4, marginRight: 4 }}
+                        />
+                        <div
+                          style={{
+                            fontSize: "14px",
+                            fontWeight: 800,
+                            color: "#fd7e14",
+                          }}
+                        >
+                          20
+                        </div>
+                        <ActionIcon
+                          color="orange"
+                          radius="xl"
+                          variant="light"
+                          size="lg"
+                        >
+                          <SiStackoverflow />
+                        </ActionIcon>
+                      </div>
+                    </Tooltip>
+                  </motion.div>
+                </Flex>
+              </motion.div>
             </Flex>
             <Divider my="sm" />
             <Blockquote icon={<ImQuotesLeft />} cite="">
@@ -149,139 +277,75 @@ const AboutPage = () => {
               </Text>
             </Blockquote>
           </Card>
-        </motion.div>
-        <motion.div>
-          <Card sx={{ marginTop: 10 }} shadow="xl" padding="sm" radius="lg">
-            <Text sx={{ marginBottom: 12 }} size="sm" weight={700}>
-              Stats
-            </Text>
-            <Flex>
-              <ActionIcon size="md" variant="light" color="green" radius="xl">
-                <BiGitBranch />
-              </ActionIcon>
-              <Text size={16}>1,257</Text>
-              <ActionIcon size="md" variant="light" color="green" radius="xl">
-                <BiStar />
-              </ActionIcon>
-              <Text>20</Text>
-              <ActionIcon size="md" variant="light" color="green" radius="xl">
-                <BiStar />
-              </ActionIcon>
-              <Text>464</Text>
-              <ActionIcon size="md" variant="light" color="yellow" radius="xl">
-                <BiStar />
-              </ActionIcon>
-              <Text>1</Text>
-              <ActionIcon size="md" variant="light" color="gray" radius="xl">
-                <BiStar />
-              </ActionIcon>
-              <Text>10</Text>
-              <ActionIcon size="md" variant="light" color="red" radius="xl">
-                <BiStar />
-              </ActionIcon>
-              <Text>20</Text>
-            </Flex>
-          </Card>
-        </motion.div>
-        <motion.div className="item" variants={item}>
-          <Card sx={{ marginTop: 10 }} shadow="xl" padding="sm" radius="lg">
-            <Text sx={{ marginBottom: 12 }} size="sm" weight={700}>
-              Languages
-            </Text>
-            <Flex>
-              <Group sx={{ marginRight: 10 }}>
+          <motion.div variants={item}>
+            <Card
+              sx={{ marginTop: 30, marginBottom: 20 }}
+              shadow="xl"
+              padding="sm"
+              radius="lg"
+              withBorder
+            >
+              <Text sx={{ marginBottom: 12 }} size="sm" weight={700}>
+                Languages
+              </Text>
+              <Group>
                 <Badge color="yellow" size="lg" variant="light">
                   Javascript
                 </Badge>
-              </Group>
-              <Group sx={{ marginRight: 10 }}>
                 <Badge color="blue" size="lg" variant="light">
                   Typescript
-                </Badge>
-              </Group>
-              <Group sx={{ marginRight: 10 }}>
+                </Badge>{" "}
                 <Badge color="yellow" size="lg" variant="light">
                   Python
-                </Badge>
-              </Group>
-            </Flex>
-          </Card>
-        </motion.div>
-        <motion.div className="item" variants={item}>
-          <Card sx={{ marginTop: 10 }} shadow="xl" padding="sm" radius="lg">
-            <Text sx={{ marginBottom: 12 }} size="sm" weight={600}>
-              Frameworks
-            </Text>
-            <Flex>
-              <Group sx={{ marginRight: 10 }}>
+                </Badge>{" "}
                 <Badge color="blue" size="lg" variant="light">
                   React JS
-                </Badge>
-              </Group>
-              <Group sx={{ marginRight: 10 }}>
+                </Badge>{" "}
                 <Badge color="blue" size="lg" variant="light">
                   React Native
-                </Badge>
-              </Group>
-              <Group sx={{ marginRight: 10 }}>
+                </Badge>{" "}
                 <Badge color="cyan" size="lg" variant="light">
                   Next JS
-                </Badge>
-              </Group>
-              <Group sx={{ marginRight: 10 }}>
+                </Badge>{" "}
                 <Badge color="green" size="lg" variant="light">
                   Node JS
-                </Badge>
-              </Group>
-              <Group sx={{ marginRight: 10 }}>
+                </Badge>{" "}
                 <Badge color="cyan" size="lg" variant="light">
                   Express JS
-                </Badge>
-              </Group>
-            </Flex>
-          </Card>
-        </motion.div>
-        <motion.div className="item" variants={item}>
-          <Card sx={{ marginTop: 10 }} shadow="xl" padding="sm" radius="lg">
-            <Text sx={{ marginBottom: 12 }} size="sm" weight={600}>
-              Other Tools
-            </Text>
-
-            <Flex wrap="wrap">
-              <Group sx={{ marginRight: 10 }}>
+                </Badge>{" "}
                 <Badge color="blue" size="lg" variant="light">
                   MySQL
-                </Badge>
+                </Badge>{" "}
                 <Badge color="blue" size="lg" variant="light">
                   Postgres
-                </Badge>
+                </Badge>{" "}
                 <Badge color="cyan" size="lg" variant="light">
                   Mongo DB
-                </Badge>
+                </Badge>{" "}
                 <Badge color="green" size="lg" variant="light">
                   Bootstrap
-                </Badge>
+                </Badge>{" "}
                 <Badge color="cyan" size="lg" variant="light">
                   Redux
-                </Badge>
+                </Badge>{" "}
                 <Badge color="cyan" size="lg" variant="light">
                   Styled Components
-                </Badge>
+                </Badge>{" "}
                 <Badge color="cyan" size="lg" variant="light">
                   Version Control
-                </Badge>
+                </Badge>{" "}
                 <Badge color="cyan" size="lg" variant="light">
                   NPM
-                </Badge>
+                </Badge>{" "}
                 <Badge color="cyan" size="lg" variant="light">
                   Yarn
-                </Badge>
+                </Badge>{" "}
                 <Badge color="cyan" size="lg" variant="light">
                   SCSS
                 </Badge>
               </Group>
-            </Flex>
-          </Card>
+            </Card>
+          </motion.div>
         </motion.div>
       </motion.div>
     </Container>
