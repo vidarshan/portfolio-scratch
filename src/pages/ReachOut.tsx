@@ -1,20 +1,16 @@
 import {
   ActionIcon,
-  Button,
   Card,
   Container,
   Flex,
-  Grid,
   Group,
-  Input,
   Text,
   TextInput,
   Textarea,
+  Tooltip,
 } from "@mantine/core";
-import React from "react";
-import { AiOutlineArrowRight, AiOutlineSend } from "react-icons/ai";
-import { BiRightArrow } from "react-icons/bi";
-import { BsArrowRightCircle } from "react-icons/bs";
+import { MdOutlineClose } from "react-icons/md";
+import { IoSend } from "react-icons/io5";
 
 const ReachOut = () => {
   return (
@@ -42,19 +38,18 @@ const ReachOut = () => {
           description="Description below the input"
           withAsterisk
         />
-        <Flex direction="row" justify="space-between" mt={20}>
+        <Flex direction="row" justify="flex-end" mt={20}>
           <Group>
-            <ActionIcon color="blue" size="xl" radius="xl" variant="light">
-              <BsArrowRightCircle />
-            </ActionIcon>
-          </Group>
-          <Group>
-            <ActionIcon color="blue" size="xl" radius="xl" variant="light">
-              <BsArrowRightCircle />
-            </ActionIcon>
-            <ActionIcon color="blue" size="xl" radius="xl" variant="light">
-              <BsArrowRightCircle />
-            </ActionIcon>
+            <Tooltip label="Clear Form" position="right" withArrow>
+              <ActionIcon color="red" size="xl" radius="xl" variant="light">
+                <MdOutlineClose size={20} />
+              </ActionIcon>
+            </Tooltip>
+            <Tooltip label="Send Message" position="bottom" withArrow>
+              <ActionIcon color="teal" size="xl" radius="xl" variant="light">
+                <IoSend size={20} />
+              </ActionIcon>
+            </Tooltip>
           </Group>
         </Flex>
       </Card>

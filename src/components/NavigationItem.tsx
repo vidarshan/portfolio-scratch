@@ -1,24 +1,36 @@
-import { ActionIcon, HoverCard, Text } from "@mantine/core";
+import { ActionIcon, Tooltip } from "@mantine/core";
 import { FC } from "react";
 import { INavigationItem } from "../models/INavigationItem";
 import { NavigationItemContainer } from "../styles/NavigationItemContainer";
 
-const NavigationItem: FC<INavigationItem> = ({ children, hoverContent }) => {
+const NavigationItem: FC<INavigationItem> = ({
+  children,
+  toolTipContent,
+  onClick,
+  color,
+}) => {
   return (
     <NavigationItemContainer>
-      {hoverContent ? (
-        <HoverCard width={280} shadow="md" position="right" withArrow>
-          <HoverCard.Target>
-            <ActionIcon color="grape" size="xl" radius="xl" variant="light">
-              {children}
-            </ActionIcon>
-          </HoverCard.Target>
-          <HoverCard.Dropdown>
-            <Text size="sm">{hoverContent}</Text>
-          </HoverCard.Dropdown>
-        </HoverCard>
+      {toolTipContent ? (
+        <Tooltip label={toolTipContent} position="right" withArrow>
+          <ActionIcon
+            color={color}
+            size="xl"
+            radius="xl"
+            variant="light"
+            onClick={onClick}
+          >
+            {children}
+          </ActionIcon>
+        </Tooltip>
       ) : (
-        <ActionIcon color="lime" size="xl" radius="xl" variant="light">
+        <ActionIcon
+          color={color}
+          size="xl"
+          radius="xl"
+          variant="light"
+          onClick={onClick}
+        >
           {children}
         </ActionIcon>
       )}

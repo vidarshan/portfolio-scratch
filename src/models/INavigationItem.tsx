@@ -1,4 +1,6 @@
 export interface INavigationItem {
   children: JSX.Element;
-  hoverContent?: string;
+  toolTipContent?: string;
+  onClick?: (arg0: any) => any;
+  color: string;
 }

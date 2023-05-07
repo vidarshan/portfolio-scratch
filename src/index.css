@@ -1,29 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 body {
   margin: 0;
-  font-family: 'Manrope', sans-serif !important;
+  font-family: "Manrope", sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-div{
-  font-family: 'Manrope', sans-serif !important;
+div {
+  font-family: "Manrope", sans-serif !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.mantine-Divider-root, .mantine-Divider-horizontal{
+.mantine-Divider-root,
+.mantine-Divider-horizontal {
   margin-top: 10px;
 }
 
-.mantine-Tooltip-tooltip{
+.mantine-Tooltip-tooltip {
   font-weight: 700;
 }
 
-& .archive-card{
+& .archive-card {
   padding: 0 !important;
+}
+
+.stackoverflow-light {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(255, 244, 230, 1);
+  border-radius: 30px;
+  padding-left: 10px;
+  margin-left: 8px;
+}
+
+.stackoverflow-dark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(232, 89, 12, 0.2);
+  border-radius: 30px;
+  padding-left: 10px;
+  margin-left: 8px;
+}
+
+.stackoverflow-dark > button {
+  background-color: rgba(232, 89, 12, 0);
+}
+
+.github-light {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(248, 249, 250, 1);
+  border-radius: 30px;
+  padding-left: 10px;
+  margin-left: 8px;
+}
+
+.github-dark {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(169, 178, 186, 0.2);
+  border-radius: 30px;
+  padding-left: 10px;
+  margin-left: 8px;
+}
+
+.github-dark > button {
+  background-color: rgba(232, 89, 12, 0);
+}
+
+.bullet-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+}
+
+.plus {
+  margin: 0 5px;
 }

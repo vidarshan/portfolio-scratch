@@ -10,16 +10,36 @@ import {
   Badge,
   Tooltip,
   Group,
+  ColorScheme,
+  HoverCard,
+  Anchor,
 } from "@mantine/core";
 import { SiGmail, SiLinkedin, SiGithub, SiStackoverflow } from "react-icons/si";
 import { ImQuotesLeft } from "react-icons/im";
 import { motion } from "framer-motion";
 import { BiGitBranch, BiMedal, BiStar, BiTrophy } from "react-icons/bi";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import { useLocalStorage } from "@mantine/hooks";
+import { BsCloudDownload } from "react-icons/bs";
+import {
+  Githubdark,
+  GithubdarkText,
+  Githublight,
+  GithublightText,
+  Stackoverflowdark,
+  StackoverflowdarkText,
+  Stackoverflowlight,
+  StackoverflowlightText,
+} from "../styles/AboutPage";
 
 const AboutPage = () => {
   const cardRef: any = useRef();
-  const [focus, setFocus] = useState(false);
+
+  const [colorScheme] = useLocalStorage<ColorScheme>({
+    key: "mantine-color-scheme",
+    defaultValue: "light",
+    getInitialValueInEffect: true,
+  });
 
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -38,20 +58,6 @@ const AboutPage = () => {
     visible: {
       y: 0,
       opacity: 1,
-    },
-  };
-
-  const bounceTransition = {
-    y: {
-      duration: 0.4,
-      yoyo: Infinity,
-      ease: "easeOut",
-    },
-    backgroundColor: {
-      duration: 0,
-      yoyo: Infinity,
-      ease: "easeOut",
-      repeatDelay: 0.8,
     },
   };
 
@@ -97,6 +103,19 @@ const AboutPage = () => {
               <motion.div variants={container}>
                 <Flex sx={{ marginLeft: 10 }} direction="row" align="center">
                   <motion.div variants={item}>
+                    <Tooltip label="Download resume" withArrow>
+                      <ActionIcon
+                        sx={{ marginLeft: 8 }}
+                        color="red"
+                        radius="xl"
+                        variant="light"
+                        size="lg"
+                      >
+                        <BsCloudDownload />
+                      </ActionIcon>
+                    </Tooltip>
+                  </motion.div>
+                  <motion.div variants={item}>
                     <Tooltip label="Gmail" withArrow>
                       <ActionIcon
                         sx={{ marginLeft: 8 }}
@@ -123,45 +142,42 @@ const AboutPage = () => {
                     </Tooltip>
                   </motion.div>
                   <motion.div variants={item}>
-                    <Tooltip label="Github" withArrow>
-                      <div
-                        style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          alignItems: "center",
-                          backgroundColor: "rgba(248, 249, 250, 1)",
-                          borderRadius: "30px",
-                          paddingLeft: "10px",
-                          marginLeft: "8px",
-                        }}
-                      >
+                    {colorScheme === "light" ? (
+                      <Tooltip label="Github" withArrow>
+                        <Githublight>
+                          <BiGitBranch
+                            color="#868e96"
+                            style={{ marginRight: 4 }}
+                          />
+                          <GithubdarkText>863</GithubdarkText>
+                          <BiStar
+                            color="#868e96"
+                            style={{ marginLeft: 4, marginRight: 4 }}
+                          />
+                          <GithubdarkText>18</GithubdarkText>
+                          <ActionIcon
+                            color="gray"
+                            radius="xl"
+                            variant="light"
+                            size="lg"
+                          >
+                            <SiGithub />
+                          </ActionIcon>
+                        </Githublight>
+                      </Tooltip>
+                    ) : (
+                      <Githubdark>
                         <BiGitBranch
-                          color="#868e96"
+                          color="#e9ecef"
                           style={{ marginRight: 4 }}
                         />
 
-                        <div
-                          style={{
-                            fontSize: "14px",
-                            fontWeight: 800,
-                            color: "#868e96",
-                          }}
-                        >
-                          863
-                        </div>
+                        <GithublightText>863</GithublightText>
                         <BiStar
-                          color="#868e96"
+                          color={"#e9ecef"}
                           style={{ marginLeft: 4, marginRight: 4 }}
                         />
-                        <div
-                          style={{
-                            fontSize: "14px",
-                            fontWeight: 800,
-                            color: "#868e96",
-                          }}
-                        >
-                          18
-                        </div>
+                        <GithublightText>18</GithublightText>
 
                         <ActionIcon
                           color="gray"
@@ -171,82 +187,104 @@ const AboutPage = () => {
                         >
                           <SiGithub />
                         </ActionIcon>
-                      </div>
-                    </Tooltip>
+                      </Githubdark>
+                    )}
                   </motion.div>
                   <motion.div variants={item}>
-                    <Tooltip label="Stackoverflow" withArrow>
-                      <div
+                    <HoverCard width={280} shadow="md" withArrow>
+                      <HoverCard.Target>
+                        {colorScheme === "light" ? (
+                          <Stackoverflowlight>
+                            <BiTrophy
+                              color={
+                                colorScheme === "light" ? "#fd7e14" : "#ffd8a8"
+                              }
+                              style={{ marginRight: 4 }}
+                            />
+
+                            <StackoverflowdarkText>544</StackoverflowdarkText>
+                            <BiMedal
+                              color={
+                                colorScheme === "light" ? "#fd7e14" : "#ffd8a8"
+                              }
+                              style={{ marginLeft: 4, marginRight: 4 }}
+                            />
+                            <StackoverflowdarkText>1</StackoverflowdarkText>
+                            <BiMedal
+                              color={
+                                colorScheme === "light" ? "#fd7e14" : "#ffd8a8"
+                              }
+                              style={{ marginLeft: 4, marginRight: 4 }}
+                            />
+                            <StackoverflowdarkText>10</StackoverflowdarkText>
+                            <BiMedal
+                              color={
+                                colorScheme === "light" ? "#fd7e14" : "#ffd8a8"
+                              }
+                              style={{ marginLeft: 4, marginRight: 4 }}
+                            />
+                            <StackoverflowdarkText>20</StackoverflowdarkText>
+                            <ActionIcon
+                              color="orange"
+                              radius="xl"
+                              variant="light"
+                              size="lg"
+                            >
+                              <SiStackoverflow />
+                            </ActionIcon>
+                          </Stackoverflowlight>
+                        ) : (
+                          <Stackoverflowdark>
+                            <BiTrophy
+                              color="#ffd8a8"
+                              style={{ marginRight: 4 }}
+                            />
+                            <StackoverflowlightText>544</StackoverflowlightText>
+                            <BiMedal
+                              color="#ffd8a8"
+                              style={{ marginLeft: 4, marginRight: 4 }}
+                            />
+                            <StackoverflowlightText>1</StackoverflowlightText>
+                            <BiMedal
+                              color="#ffd8a8"
+                              style={{ marginLeft: 4, marginRight: 4 }}
+                            />
+                            <StackoverflowlightText>10</StackoverflowlightText>
+                            <BiMedal
+                              color="#ffd8a8"
+                              style={{ marginLeft: 4, marginRight: 4 }}
+                            />
+                            <StackoverflowlightText>20</StackoverflowlightText>
+                            <ActionIcon
+                              color="orange"
+                              radius="xl"
+                              variant="light"
+                              size="lg"
+                            >
+                              <SiStackoverflow />
+                            </ActionIcon>
+                          </Stackoverflowdark>
+                        )}
+                      </HoverCard.Target>
+                      <HoverCard.Dropdown
                         style={{
-                          display: "flex",
-                          flexDirection: "row",
-                          alignItems: "center",
-                          backgroundColor: "rgba(255, 244, 230, 1)",
-                          borderRadius: "30px",
-                          paddingLeft: "10px",
-                          marginLeft: "8px",
+                          backgroundColor: "#3c3c3c",
+                          color: "white",
+                          fontWeight: 600,
                         }}
                       >
-                        <BiTrophy color="#fd7e14" style={{ marginRight: 4 }} />
-
-                        <div
-                          style={{
-                            fontSize: "14px",
-                            fontWeight: 800,
-                            color: "#fd7e14",
-                          }}
-                        >
-                          544
-                        </div>
-                        <BiMedal
-                          color="#fd7e14"
-                          style={{ marginLeft: 4, marginRight: 4 }}
-                        />
-                        <div
-                          style={{
-                            fontSize: "14px",
-                            fontWeight: 800,
-                            color: "#fd7e14",
-                          }}
-                        >
-                          1
-                        </div>
-                        <BiMedal
-                          color="#fd7e14"
-                          style={{ marginLeft: 4, marginRight: 4 }}
-                        />
-                        <div
-                          style={{
-                            fontSize: "14px",
-                            fontWeight: 800,
-                            color: "#fd7e14",
-                          }}
-                        >
-                          10
-                        </div>
-                        <BiMedal
-                          color="#fd7e14"
-                          style={{ marginLeft: 4, marginRight: 4 }}
-                        />
-                        <div
-                          style={{
-                            fontSize: "14px",
-                            fontWeight: 800,
-                            color: "#fd7e14",
-                          }}
-                        >
-                          20
-                        </div>
-                        <ActionIcon
-                          color="orange"
-                          radius="xl"
-                          variant="light"
-                          size="lg"
-                        >
-                          <SiStackoverflow />
-                        </ActionIcon>
-                      </div>
-                    </Tooltip>
+                        <Text size="sm">
+                          My Stackoverflow reputation, gold, silver, and bronze
+                          medial I've aquired through my interactions with their
+                          site.
+                        </Text>
+                        <Flex direction="row" justify="flex-end">
+                          <Anchor href="https://mantine.dev/" target="_blank">
+                            View Account
+                          </Anchor>
+                        </Flex>
+                      </HoverCard.Dropdown>
+                    </HoverCard>
                   </motion.div>
                 </Flex>
               </motion.div>

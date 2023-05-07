@@ -1,8 +1,12 @@
-import { Flex, Image, Text, Transition } from "@mantine/core";
-import React, { useEffect, useState } from "react";
+import { Flex, Kbd, Text, Transition } from "@mantine/core";
+import { useEffect, useState } from "react";
 import { CoverPageContainer } from "../styles/CoverPage";
+import { BsCommand } from "react-icons/bs";
+import { useOs } from "@mantine/hooks";
+import { Plus } from "../styles/AboutPage";
 
 const CoverPage = () => {
+  const os = useOs();
   const [opened, setOpened] = useState(false);
 
   useEffect(() => {
@@ -47,6 +51,17 @@ const CoverPage = () => {
           </Text>
         )}
       </Transition>
+      {os === "macos" || os === "windows" || os === "linux" ? (
+        <Flex align="center">
+          <Kbd>{os === "macos" ? <BsCommand /> : "Ctrl"}</Kbd>
+          <Plus>+</Plus>
+          <Kbd>j</Kbd>
+          <Text ml={4} className="word-spacing-small" weight={600} size="xs">
+            {" "}
+            to toggle theme
+          </Text>
+        </Flex>
+      ) : null}
     </CoverPageContainer>
   );
 };

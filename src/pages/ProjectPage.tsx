@@ -17,14 +17,6 @@ import { SiGithub } from "react-icons/si";
 const ProjectPage = () => {
   const [opened, setOpened] = useState(false);
 
-  const openPreview = () => {
-    window.open(
-      "https://booking-app-tu3v.onrender.com",
-      `App Preview`,
-      "resizable=no,width=380,height=870"
-    );
-  };
-
   return (
     <Container sx={{ height: "100vh" }}>
       <Text weight={600} size={40}>
@@ -143,11 +135,15 @@ const ProjectPage = () => {
         </Grid.Col>
       </Grid>
       <Group position="center" mb={5}>
-        <Button radius="xl" onClick={() => setOpened(!opened)}>
+        <Button variant="light" radius="xl" onClick={() => setOpened(!opened)}>
           {opened ? "Hide" : "Expand"} Project Archive
         </Button>
       </Group>
-      <Collapse in={opened}>
+      <Collapse
+        in={opened}
+        transitionDuration={100}
+        transitionTimingFunction="linear"
+      >
         <Card
           className="archive-card"
           sx={{ display: "flex" }}
@@ -163,6 +159,36 @@ const ProjectPage = () => {
               alt="Norway"
             />
           </Card.Section>
+          <Flex align="center" sx={{ width: "100%" }}>
+            <Flex
+              align="center"
+              justify="space-between"
+              sx={{ width: "100%" }}
+              ml={26}
+            >
+              <Text weight={800}>Find my stay</Text>{" "}
+              <Flex>
+                <ActionIcon
+                  mr={10}
+                  color="blue"
+                  variant="light"
+                  radius="xl"
+                  size="lg"
+                >
+                  <SiGithub />
+                </ActionIcon>
+                <ActionIcon
+                  mr={10}
+                  color="blue"
+                  variant="light"
+                  radius="xl"
+                  size="lg"
+                >
+                  <SiGithub />
+                </ActionIcon>
+              </Flex>
+            </Flex>
+          </Flex>
         </Card>
       </Collapse>
     </Container>

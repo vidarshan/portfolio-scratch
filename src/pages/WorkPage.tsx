@@ -8,11 +8,9 @@ import {
   Group,
   List,
   Text,
-  ThemeIcon,
   Timeline,
 } from "@mantine/core";
 import { BiLinkExternal } from "react-icons/bi";
-import { RiNumber1, RiNumber2, RiNumber3, RiNumber4 } from "react-icons/ri";
 
 const WorkPage = () => {
   return (
@@ -22,18 +20,7 @@ const WorkPage = () => {
       </Text>
       <Timeline mt={50} color="green" active={4} bulletSize={24} lineWidth={4}>
         <Timeline.Item
-          bullet={
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                fontWeight: 800,
-              }}
-            >
-              1
-            </div>
-          }
+          bullet={<Container className="bullet-item">1</Container>}
         >
           <Card shadow="xl" padding="sm" radius="lg" withBorder>
             <Flex direction="row" align="center" justify="space-between">
@@ -84,16 +71,7 @@ const WorkPage = () => {
         </Timeline.Item>
         <Timeline.Item
           bullet={
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                fontWeight: 800,
-              }}
-            >
-              2
-            </div>
+            <Container className="bullet-item">2</Container>
           }
         >
           <Card shadow="xl" padding="sm" radius="lg" withBorder>
@@ -181,16 +159,7 @@ const WorkPage = () => {
         </Timeline.Item>
         <Timeline.Item
           bullet={
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                fontWeight: 800,
-              }}
-            >
-              3
-            </div>
+            <Container className="bullet-item">3</Container>
           }
         >
           <Card shadow="xl" padding="sm" radius="lg" withBorder>
@@ -240,16 +209,7 @@ const WorkPage = () => {
         </Timeline.Item>
         <Timeline.Item
           bullet={
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                fontWeight: 800,
-              }}
-            >
-              4
-            </div>
+            <Container className="bullet-item">4</Container>
           }
         >
           <Card shadow="xl" padding="sm" radius="lg" withBorder>
