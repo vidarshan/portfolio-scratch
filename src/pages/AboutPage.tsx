@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 import { BiGitBranch, BiMedal, BiStar, BiTrophy } from "react-icons/bi";
 import { useRef } from "react";
 import { useLocalStorage } from "@mantine/hooks";
-import { BsCloudDownload } from "react-icons/bs";
+import { FaGoogleDrive } from "react-icons/fa";
 import {
   Githubdark,
   GithubdarkText,
@@ -106,12 +106,12 @@ const AboutPage = () => {
                     <Tooltip label="Download resume" withArrow>
                       <ActionIcon
                         sx={{ marginLeft: 8 }}
-                        color="red"
+                        color="green"
                         radius="xl"
                         variant="light"
                         size="lg"
                       >
-                        <BsCloudDownload />
+                        <FaGoogleDrive />
                       </ActionIcon>
                     </Tooltip>
                   </motion.div>
@@ -196,31 +196,23 @@ const AboutPage = () => {
                         {colorScheme === "light" ? (
                           <Stackoverflowlight>
                             <BiTrophy
-                              color={
-                                colorScheme === "light" ? "#fd7e14" : "#ffd8a8"
-                              }
+                              color="#fd7e14"
                               style={{ marginRight: 4 }}
                             />
 
                             <StackoverflowdarkText>544</StackoverflowdarkText>
                             <BiMedal
-                              color={
-                                colorScheme === "light" ? "#fd7e14" : "#ffd8a8"
-                              }
+                              color="#fd7e14"
                               style={{ marginLeft: 4, marginRight: 4 }}
                             />
                             <StackoverflowdarkText>1</StackoverflowdarkText>
                             <BiMedal
-                              color={
-                                colorScheme === "light" ? "#fd7e14" : "#ffd8a8"
-                              }
+                              color="#fd7e14"
                               style={{ marginLeft: 4, marginRight: 4 }}
                             />
                             <StackoverflowdarkText>10</StackoverflowdarkText>
                             <BiMedal
-                              color={
-                                colorScheme === "light" ? "#fd7e14" : "#ffd8a8"
-                              }
+                              color="#fd7e14"
                               style={{ marginLeft: 4, marginRight: 4 }}
                             />
                             <StackoverflowdarkText>20</StackoverflowdarkText>
