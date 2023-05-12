@@ -14,8 +14,8 @@ import { BiLinkExternal } from "react-icons/bi";
 
 const WorkPage = () => {
   return (
-    <Container style={{ minHeight: "100vh" }}>
-      <Text weight={600} size={40}>
+    <Container>
+      <Text mb={20} weight={600} size={40}>
         Work Experience
       </Text>
       <Timeline mt={50} color="green" active={4} bulletSize={24} lineWidth={4}>
@@ -70,9 +70,7 @@ const WorkPage = () => {
           </Card>
         </Timeline.Item>
         <Timeline.Item
-          bullet={
-            <Container className="bullet-item">2</Container>
-          }
+          bullet={<Container className="bullet-item">2</Container>}
         >
           <Card shadow="xl" padding="sm" radius="lg" withBorder>
             <Flex direction="row" align="center" justify="space-between">
@@ -158,9 +156,7 @@ const WorkPage = () => {
           </Card>
         </Timeline.Item>
         <Timeline.Item
-          bullet={
-            <Container className="bullet-item">3</Container>
-          }
+          bullet={<Container className="bullet-item">3</Container>}
         >
           <Card shadow="xl" padding="sm" radius="lg" withBorder>
             <Flex direction="row" align="center" justify="space-between">
@@ -208,9 +204,7 @@ const WorkPage = () => {
           </Card>
         </Timeline.Item>
         <Timeline.Item
-          bullet={
-            <Container className="bullet-item">4</Container>
-          }
+          bullet={<Container className="bullet-item">4</Container>}
         >
           <Card shadow="xl" padding="sm" radius="lg" withBorder>
             <Flex direction="row" align="center" justify="space-between">

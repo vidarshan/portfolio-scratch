@@ -2,12 +2,13 @@ import { Flex, Kbd, Text, Transition } from "@mantine/core";
 import { useEffect, useState } from "react";
 import { CoverPageContainer } from "../styles/CoverPage";
 import { BsCommand } from "react-icons/bs";
-import { useOs } from "@mantine/hooks";
+import { useMediaQuery, useOs } from "@mantine/hooks";
 import { Plus } from "../styles/AboutPage";
 
 const CoverPage = () => {
   const os = useOs();
   const [opened, setOpened] = useState(false);
+  const largeScreen = useMediaQuery("(min-width: 60em)");
 
   useEffect(() => {
     setOpened(true);
@@ -22,7 +23,7 @@ const CoverPage = () => {
         timingFunction="ease"
       >
         {(styles) => (
-          <Text weight={600} size={50} style={styles}>
+          <Text weight={600} size={largeScreen ? 50 : 25} style={styles}>
             Hello
           </Text>
         )}
@@ -34,7 +35,7 @@ const CoverPage = () => {
         timingFunction="ease"
       >
         {(styles) => (
-          <Text weight={600} size={50} style={styles}>
+          <Text weight={600} size={largeScreen ? 50 : 26} style={styles}>
             I'm Vidarshan
           </Text>
         )}
@@ -46,7 +47,7 @@ const CoverPage = () => {
         timingFunction="ease"
       >
         {(styles) => (
-          <Text weight={600} size={50} style={styles}>
+          <Text weight={600} size={largeScreen ? 50 : 26} style={styles}>
             A Software Engineer
           </Text>
         )}

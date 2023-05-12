@@ -19,7 +19,7 @@ import { ImQuotesLeft } from "react-icons/im";
 import { motion } from "framer-motion";
 import { BiGitBranch, BiMedal, BiStar, BiTrophy } from "react-icons/bi";
 import { useRef } from "react";
-import { useLocalStorage } from "@mantine/hooks";
+import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
 import { FaGoogleDrive } from "react-icons/fa";
 import {
   Githubdark,
@@ -34,7 +34,7 @@ import {
 
 const AboutPage = () => {
   const cardRef: any = useRef();
-
+  const largeScreen = useMediaQuery("(min-width: 60em)");
   const [colorScheme] = useLocalStorage<ColorScheme>({
     key: "mantine-color-scheme",
     defaultValue: "light",
@@ -63,7 +63,7 @@ const AboutPage = () => {
 
   return (
     <Container style={{ minHeight: "100vh" }}>
-      <Text weight={600} size={40}>
+      <Text weight={600} size={largeScreen ? 40 : 25}>
         About Me
       </Text>
       <motion.div

@@ -2,6 +2,7 @@ import { ActionIcon, Tooltip } from "@mantine/core";
 import { FC } from "react";
 import { INavigationItem } from "../models/INavigationItem";
 import { NavigationItemContainer } from "../styles/NavigationItemContainer";
+import { useMediaQuery } from "@mantine/hooks";
 
 const NavigationItem: FC<INavigationItem> = ({
   children,
@@ -9,15 +10,17 @@ const NavigationItem: FC<INavigationItem> = ({
   onClick,
   color,
 }) => {
+  const largeScreen = useMediaQuery("(min-width: 60em)");
+
   return (
     <NavigationItemContainer>
       {toolTipContent ? (
         <Tooltip label={toolTipContent} position="right" withArrow>
           <ActionIcon
             color={color}
-            size="xl"
+            size={largeScreen ? "xl" : "md"}
             radius="xl"
-            variant="light"
+            variant="filled"
             onClick={onClick}
           >
             {children}
@@ -26,9 +29,9 @@ const NavigationItem: FC<INavigationItem> = ({
       ) : (
         <ActionIcon
           color={color}
-          size="xl"
+          size={largeScreen ? "xl" : "sm"}
           radius="xl"
-          variant="light"
+          variant="filled"
           onClick={onClick}
         >
           {children}

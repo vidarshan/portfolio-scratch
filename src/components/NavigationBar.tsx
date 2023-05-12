@@ -13,8 +13,10 @@ import { AiOutlineGithub } from "react-icons/ai";
 import NavigationItem from "./NavigationItem";
 import { useLocalStorage } from "@mantine/hooks";
 import { ColorScheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 const NavigationBar = () => {
+  const largeScreen = useMediaQuery("(min-width: 60em)");
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: "mantine-color-scheme",
     defaultValue: "light",
@@ -22,36 +24,36 @@ const NavigationBar = () => {
   });
 
   return (
-    <NavigationBarContainer>
+    <NavigationBarContainer background={colorScheme}>
       <NavigationItem color="lime" toolTipContent="Just the beginning!">
-        <BiHomeAlt size={20} />
+        <BiHomeAlt size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem color="lime" toolTipContent="Get to know more about me.">
-        <BiUserCircle size={20} />
+        <BiUserCircle size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem
         color="lime"
         toolTipContent="My work experience over the years."
       >
-        <BiBriefcaseAlt2 size={20} />
+        <BiBriefcaseAlt2 size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem
         color="lime"
         toolTipContent="My awesome projects and ideas."
       >
-        <BiCategory size={20} />
+        <BiCategory size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem
         color="lime"
         toolTipContent="What my collaborators said about me."
       >
-        <BiTrophy size={20} />
+        <BiTrophy size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem
         color="lime"
         toolTipContent="Drop a message to get connected."
       >
-        <BiMessageAlt size={20} />
+        <BiMessageAlt size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem
         color="yellow"
@@ -59,7 +61,11 @@ const NavigationBar = () => {
           setColorScheme(colorScheme === "light" ? "dark" : "light")
         }
       >
-        {colorScheme === "light" ? <BiSun size={20} /> : <BiMoon size={20} />}
+        {colorScheme === "light" ? (
+          <BiSun size={largeScreen ? 20 : 16} />
+        ) : (
+          <BiMoon size={largeScreen ? 20 : 16} />
+        )}
       </NavigationItem>
       <NavigationItem color="gray" toolTipContent="View this project on Github">
         <AiOutlineGithub />

@@ -18,12 +18,12 @@ const ProjectPage = () => {
   const [opened, setOpened] = useState(false);
 
   return (
-    <Container sx={{ height: "100vh" }}>
+    <Container mt={120}>
       <Text weight={600} size={40}>
-        Projects (Vibration)
+        Projects
       </Text>
       <Grid>
-        <Grid.Col span={6}>
+        <Grid.Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section sx={{ position: "relative" }}>
               <ActionIcon
@@ -86,7 +86,7 @@ const ProjectPage = () => {
             </Group>
           </Card>
         </Grid.Col>
-        <Grid.Col span={6}>
+        <Grid.Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section sx={{ position: "relative" }}>
               <ActionIcon
@@ -128,7 +128,7 @@ const ProjectPage = () => {
             </Group>
           </Card>
         </Grid.Col>
-        <Grid.Col span={6}>
+        <Grid.Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Card shadow="xl" withBorder radius="lg">
             <Image width={300} src={require("../images/techstop.webp")} />
           </Card>
