@@ -31,6 +31,7 @@ import {
   Stackoverflowlight,
   StackoverflowlightText,
 } from "../styles/AboutPage";
+import { technologies } from "../data/competencies";
 
 const AboutPage = () => {
   const cardRef: any = useRef();
@@ -158,7 +159,7 @@ const AboutPage = () => {
                           <ActionIcon
                             color="gray"
                             radius="xl"
-                            variant="light"
+                            variant="filled"
                             size="lg"
                           >
                             <SiGithub />
@@ -318,61 +319,19 @@ const AboutPage = () => {
               <Text sx={{ marginBottom: 12 }} size="sm" weight={700}>
                 Languages
               </Text>
-              <Group>
-                <Badge color="yellow" size="lg" variant="light">
-                  Javascript
-                </Badge>
-                <Badge color="blue" size="lg" variant="light">
-                  Typescript
-                </Badge>{" "}
-                <Badge color="yellow" size="lg" variant="light">
-                  Python
-                </Badge>{" "}
-                <Badge color="blue" size="lg" variant="light">
-                  React JS
-                </Badge>{" "}
-                <Badge color="blue" size="lg" variant="light">
-                  React Native
-                </Badge>{" "}
-                <Badge color="cyan" size="lg" variant="light">
-                  Next JS
-                </Badge>{" "}
-                <Badge color="green" size="lg" variant="light">
-                  Node JS
-                </Badge>{" "}
-                <Badge color="cyan" size="lg" variant="light">
-                  Express JS
-                </Badge>{" "}
-                <Badge color="blue" size="lg" variant="light">
-                  MySQL
-                </Badge>{" "}
-                <Badge color="blue" size="lg" variant="light">
-                  Postgres
-                </Badge>{" "}
-                <Badge color="cyan" size="lg" variant="light">
-                  Mongo DB
-                </Badge>{" "}
-                <Badge color="green" size="lg" variant="light">
-                  Bootstrap
-                </Badge>{" "}
-                <Badge color="cyan" size="lg" variant="light">
-                  Redux
-                </Badge>{" "}
-                <Badge color="cyan" size="lg" variant="light">
-                  Styled Components
-                </Badge>{" "}
-                <Badge color="cyan" size="lg" variant="light">
-                  Version Control
-                </Badge>{" "}
-                <Badge color="cyan" size="lg" variant="light">
-                  NPM
-                </Badge>{" "}
-                <Badge color="cyan" size="lg" variant="light">
-                  Yarn
-                </Badge>{" "}
-                <Badge color="cyan" size="lg" variant="light">
-                  SCSS
-                </Badge>
+              <Group position="apart">
+                {technologies.map((technology) => {
+                  return (
+                    <Badge
+                      key={technology.id}
+                      color={technology.color}
+                      size="lg"
+                      variant="filled"
+                    >
+                      {technology.name}
+                    </Badge>
+                  );
+                })}
               </Group>
             </Card>
           </motion.div>

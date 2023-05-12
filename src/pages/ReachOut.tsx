@@ -21,7 +21,7 @@ const ReachOut = () => {
           Reach Out
         </Text>
         <Card shadow="sm" radius="lg" withBorder>
-          <Text sx={{ marginBottom: 12 }} size="sm" weight={700}>
+          <Text sx={{ marginBottom: 30 }} size="sm" weight={700}>
             Send me a message
           </Text>
           <TextInput
@@ -43,10 +43,15 @@ const ReachOut = () => {
           <Flex direction="row" justify="flex-end" mt={20}>
             <Group>
               {" "}
-              <Button color="gray" radius="xl" leftIcon={<MdOutlineClose />} variant="light">
+              <Button
+                color="gray"
+                radius="xl"
+                leftIcon={<MdOutlineClose />}
+                variant="filled"
+              >
                 Cancel
               </Button>
-              <Button radius="xl" leftIcon={<IoSend />} variant="light">
+              <Button radius="xl" leftIcon={<IoSend />} variant="filled">
                 Send Message
               </Button>
             </Group>

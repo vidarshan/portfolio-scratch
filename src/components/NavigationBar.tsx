@@ -25,32 +25,32 @@ const NavigationBar = () => {
 
   return (
     <NavigationBarContainer background={colorScheme}>
-      <NavigationItem color="lime" toolTipContent="Just the beginning!">
+      <NavigationItem color="green" toolTipContent="Just the beginning!">
         <BiHomeAlt size={largeScreen ? 20 : 16} />
       </NavigationItem>
-      <NavigationItem color="lime" toolTipContent="Get to know more about me.">
+      <NavigationItem color="green" toolTipContent="Get to know more about me.">
         <BiUserCircle size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem
-        color="lime"
+        color="green"
         toolTipContent="My work experience over the years."
       >
         <BiBriefcaseAlt2 size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem
-        color="lime"
+        color="green"
         toolTipContent="My awesome projects and ideas."
       >
         <BiCategory size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem
-        color="lime"
+        color="green"
         toolTipContent="What my collaborators said about me."
       >
         <BiTrophy size={largeScreen ? 20 : 16} />
       </NavigationItem>
       <NavigationItem
-        color="lime"
+        color="green"
         toolTipContent="Drop a message to get connected."
       >
         <BiMessageAlt size={largeScreen ? 20 : 16} />
