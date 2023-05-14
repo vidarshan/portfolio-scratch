@@ -4,16 +4,16 @@ export const Stackoverflowlight = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(255, 244, 230, 1);
   border-radius: 30px;
   padding-left: 10px;
   margin-left: 8px;
+  background-color: #fd7e14;
 `;
 export const Stackoverflowdark = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(232, 89, 12, 0.2);
+  background-color: #fd7e14;
   border-radius: 30px;
   padding-left: 10px;
   margin-left: 8px;
@@ -27,7 +27,7 @@ export const Githublight = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(248, 249, 250, 1);
+  background-color: #868e96;
   border-radius: 30px;
   padding-left: 10px;
   margin-left: 8px;
@@ -36,7 +36,7 @@ export const Githubdark = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: rgba(169, 178, 186, 0.2);
+  background-color: #868e96;
   border-radius: 30px;
   padding-left: 10px;
   margin-left: 8px;
@@ -49,7 +49,7 @@ export const Githubdark = styled.div`
 export const GithubdarkText = styled.div`
   font-size: 14px;
   font-weight: 800;
-  color: #868e96;
+  color: #fff;
 `;
 
 export const GithublightText = styled.div`
@@ -71,11 +71,11 @@ export const Plus = styled.span`
 export const StackoverflowdarkText = styled.div`
   font-size: 14px;
   font-weight: 800;
-  color: #fd7e14;
+  color: #fff;
 `;
 
 export const StackoverflowlightText = styled.div`
   font-size: 14px;
   font-weight: 800;
-  color: #ffd8a8;
+  color: #fff;
 `;

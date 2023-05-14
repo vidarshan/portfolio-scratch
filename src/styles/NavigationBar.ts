@@ -11,14 +11,14 @@ export const NavigationBarContainer = styled.div<NavigationBarContainerProps>`
   top: 0;
   left: 0;
   z-index: 10000;
-  ${(props) =>
+  /* ${(props) =>
     props.background === "light"
       ? css`
           background-color: #fff;
         `
       : css`
-          background-color: #1A1B1E;
-        `}
+          background-color: #1a1b1e;
+        `} */
 
   @media (max-width: 1100px) {
     flex-direction: row;

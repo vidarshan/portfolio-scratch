@@ -1,13 +1,13 @@
 import { NavigationBarContainer } from "../styles/NavigationBar";
 import {
   BiHomeAlt,
-  BiUserCircle,
   BiTrophy,
   BiBriefcaseAlt2,
   BiCategory,
   BiMessageAlt,
   BiMoon,
   BiSun,
+  BiUser,
 } from "react-icons/bi";
 import { AiOutlineGithub } from "react-icons/ai";
 import NavigationItem from "./NavigationItem";
@@ -25,50 +25,35 @@ const NavigationBar = () => {
 
   return (
     <NavigationBarContainer background={colorScheme}>
-      <NavigationItem color="green" toolTipContent="Just the beginning!">
-        <BiHomeAlt size={largeScreen ? 20 : 16} />
+      <NavigationItem color="blue" toolTipContent="Just the beginning!">
+        <BiHomeAlt size={largeScreen ? 18 : 14} />
       </NavigationItem>
-      <NavigationItem color="green" toolTipContent="Get to know more about me.">
-        <BiUserCircle size={largeScreen ? 20 : 16} />
+      <NavigationItem color="dark" toolTipContent="Get to know more about me.">
+        <BiUser size={largeScreen ? 18 : 14} />
       </NavigationItem>
       <NavigationItem
-        color="green"
+        color="dark"
         toolTipContent="My work experience over the years."
       >
-        <BiBriefcaseAlt2 size={largeScreen ? 20 : 16} />
+        <BiBriefcaseAlt2 size={largeScreen ? 18 : 14} />
       </NavigationItem>
       <NavigationItem
-        color="green"
+        color="dark"
         toolTipContent="My awesome projects and ideas."
       >
-        <BiCategory size={largeScreen ? 20 : 16} />
+        <BiCategory size={largeScreen ? 18 : 14} />
       </NavigationItem>
       <NavigationItem
-        color="green"
+        color="dark"
         toolTipContent="What my collaborators said about me."
       >
-        <BiTrophy size={largeScreen ? 20 : 16} />
+        <BiTrophy size={largeScreen ? 18 : 14} />
       </NavigationItem>
       <NavigationItem
-        color="green"
+        color="dark"
         toolTipContent="Drop a message to get connected."
       >
-        <BiMessageAlt size={largeScreen ? 20 : 16} />
-      </NavigationItem>
-      <NavigationItem
-        color="yellow"
-        onClick={() =>
-          setColorScheme(colorScheme === "light" ? "dark" : "light")
-        }
-      >
-        {colorScheme === "light" ? (
-          <BiSun size={largeScreen ? 20 : 16} />
-        ) : (
-          <BiMoon size={largeScreen ? 20 : 16} />
-        )}
-      </NavigationItem>
-      <NavigationItem color="gray" toolTipContent="View this project on Github">
-        <AiOutlineGithub />
+        <BiMessageAlt size={largeScreen ? 18 : 14} />
       </NavigationItem>
     </NavigationBarContainer>
   );

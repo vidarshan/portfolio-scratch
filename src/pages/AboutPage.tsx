@@ -15,12 +15,14 @@ import {
   Anchor,
 } from "@mantine/core";
 import { SiGmail, SiLinkedin, SiGithub, SiStackoverflow } from "react-icons/si";
+import { AiFillLinkedin } from "react-icons/ai";
+import { HiOutlineDownload } from "react-icons/hi";
 import { ImQuotesLeft } from "react-icons/im";
 import { motion } from "framer-motion";
 import { BiGitBranch, BiMedal, BiStar, BiTrophy } from "react-icons/bi";
 import { useRef } from "react";
 import { useLocalStorage, useMediaQuery } from "@mantine/hooks";
-import { FaGoogleDrive } from "react-icons/fa";
+import { MdOutlineSimCardDownload } from "react-icons/md";
 import {
   Githubdark,
   GithubdarkText,
@@ -32,6 +34,8 @@ import {
   StackoverflowlightText,
 } from "../styles/AboutPage";
 import { technologies } from "../data/competencies";
+import { IoMail, IoDownload } from "react-icons/io5";
+import { myImg } from "../data/info";
 
 const AboutPage = () => {
   const cardRef: any = useRef();
@@ -87,7 +91,7 @@ const AboutPage = () => {
                   radius="xl"
                   size="lg"
                   color="teal"
-                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=250&q=80"
+                  src={myImg}
                 />
                 <Flex sx={{ marginLeft: 10 }} direction="column">
                   <Text size={16} weight={800}>
@@ -107,12 +111,12 @@ const AboutPage = () => {
                     <Tooltip label="Download resume" withArrow>
                       <ActionIcon
                         sx={{ marginLeft: 8 }}
-                        color="green"
+                        color="lime"
                         radius="xl"
-                        variant="light"
+                        variant="filled"
                         size="lg"
                       >
-                        <FaGoogleDrive />
+                        <HiOutlineDownload size={20} />
                       </ActionIcon>
                     </Tooltip>
                   </motion.div>
@@ -122,10 +126,10 @@ const AboutPage = () => {
                         sx={{ marginLeft: 8 }}
                         color="red"
                         radius="xl"
-                        variant="light"
+                        variant="filled"
                         size="lg"
                       >
-                        <SiGmail />
+                        <IoMail size={20} />
                       </ActionIcon>
                     </Tooltip>
                   </motion.div>
@@ -135,10 +139,10 @@ const AboutPage = () => {
                         sx={{ marginLeft: 8 }}
                         color="blue"
                         radius="xl"
-                        variant="light"
+                        variant="filled"
                         size="lg"
                       >
-                        <SiLinkedin />
+                        <AiFillLinkedin size={20} />
                       </ActionIcon>
                     </Tooltip>
                   </motion.div>
@@ -147,12 +151,12 @@ const AboutPage = () => {
                       <Tooltip label="Github" withArrow>
                         <Githublight>
                           <BiGitBranch
-                            color="#868e96"
+                            color="#fff"
                             style={{ marginRight: 4 }}
                           />
                           <GithubdarkText>863</GithubdarkText>
                           <BiStar
-                            color="#868e96"
+                            color="#fff"
                             style={{ marginLeft: 4, marginRight: 4 }}
                           />
                           <GithubdarkText>18</GithubdarkText>
@@ -183,7 +187,7 @@ const AboutPage = () => {
                         <ActionIcon
                           color="gray"
                           radius="xl"
-                          variant="light"
+                          variant="filled"
                           size="lg"
                         >
                           <SiGithub />
@@ -196,31 +200,27 @@ const AboutPage = () => {
                       <HoverCard.Target>
                         {colorScheme === "light" ? (
                           <Stackoverflowlight>
-                            <BiTrophy
-                              color="#fd7e14"
-                              style={{ marginRight: 4 }}
-                            />
-
+                            <BiTrophy color="#fff" style={{ marginRight: 4 }} />
                             <StackoverflowdarkText>544</StackoverflowdarkText>
                             <BiMedal
-                              color="#fd7e14"
+                              color="#fff"
                               style={{ marginLeft: 4, marginRight: 4 }}
                             />
                             <StackoverflowdarkText>1</StackoverflowdarkText>
                             <BiMedal
-                              color="#fd7e14"
+                              color="#fff"
                               style={{ marginLeft: 4, marginRight: 4 }}
                             />
                             <StackoverflowdarkText>10</StackoverflowdarkText>
                             <BiMedal
-                              color="#fd7e14"
+                              color="#fff"
                               style={{ marginLeft: 4, marginRight: 4 }}
                             />
                             <StackoverflowdarkText>20</StackoverflowdarkText>
                             <ActionIcon
                               color="orange"
                               radius="xl"
-                              variant="light"
+                              variant="filled"
                               size="lg"
                             >
                               <SiStackoverflow />
@@ -229,29 +229,29 @@ const AboutPage = () => {
                         ) : (
                           <Stackoverflowdark>
                             <BiTrophy
-                              color="#ffd8a8"
+                              color="#fff"
                               style={{ marginRight: 4 }}
                             />
                             <StackoverflowlightText>544</StackoverflowlightText>
                             <BiMedal
-                              color="#ffd8a8"
+                              color="#fff"
                               style={{ marginLeft: 4, marginRight: 4 }}
                             />
                             <StackoverflowlightText>1</StackoverflowlightText>
                             <BiMedal
-                              color="#ffd8a8"
+                              color="#fff"
                               style={{ marginLeft: 4, marginRight: 4 }}
                             />
                             <StackoverflowlightText>10</StackoverflowlightText>
                             <BiMedal
-                              color="#ffd8a8"
+                              color="#fff"
                               style={{ marginLeft: 4, marginRight: 4 }}
                             />
                             <StackoverflowlightText>20</StackoverflowlightText>
                             <ActionIcon
                               color="orange"
                               radius="xl"
-                              variant="light"
+                              variant="filled"
                               size="lg"
                             >
                               <SiStackoverflow />
@@ -325,7 +325,7 @@ const AboutPage = () => {
                     <Badge
                       key={technology.id}
                       color={technology.color}
-                      size="lg"
+                      size="md"
                       variant="filled"
                     >
                       {technology.name}

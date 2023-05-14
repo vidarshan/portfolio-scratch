@@ -7,6 +7,7 @@ import {
   Divider,
   Flex,
   Grid,
+  Spoiler,
   Text,
   Tooltip,
 } from "@mantine/core";
@@ -70,7 +71,13 @@ const Testimonials = () => {
                     icon={<ImQuotesLeft />}
                     sx={{ fontSize: "14px", fontWeight: 700 }}
                   >
-                    {item.description}
+                    <Spoiler
+                      maxHeight={130}
+                      showLabel="Show more"
+                      hideLabel="Hide"
+                    >
+                      {item.description}
+                    </Spoiler>
                   </Blockquote>
                 </Card>
               </Grid.Col>

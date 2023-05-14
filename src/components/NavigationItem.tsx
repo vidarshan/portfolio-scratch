@@ -18,7 +18,7 @@ const NavigationItem: FC<INavigationItem> = ({
         <Tooltip label={toolTipContent} position="right" withArrow>
           <ActionIcon
             color={color}
-            size={largeScreen ? "xl" : "md"}
+            size={largeScreen ? "lg" : "md"}
             radius="xl"
             variant="filled"
             onClick={onClick}
@@ -29,7 +29,7 @@ const NavigationItem: FC<INavigationItem> = ({
       ) : (
         <ActionIcon
           color={color}
-          size={largeScreen ? "xl" : "sm"}
+          size={largeScreen ? "lg" : "sm"}
           radius="xl"
           variant="filled"
           onClick={onClick}
