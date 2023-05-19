@@ -1,7 +1,8 @@
-import { Container, Slider, Text } from "@mantine/core";
+import { Box, Container, Slider, Text } from "@mantine/core";
 import styled from "styled-components";
+import { IReachOutContainerProps } from "../models/IReachOut";
 
-export const ReachOutContainer = styled(Container)`
+export const ReachOutContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Card,
   Flex,
@@ -104,53 +105,57 @@ const ReachOut = () => {
   return (
     <ReachOutContainer>
       <Flex direction="column" justify="center">
-        <Text mb={20} weight={600} size={40}>
-          Reach Out
-        </Text>
-        <Card className="reach-out-card" shadow="sm" radius="lg" withBorder>
-          <form onSubmit={form.onSubmit((values) => sendEmail(values))}>
-            <Text sx={{ marginBottom: 30 }} size="sm" weight={700}>
-              Send me a message
-            </Text>
-            <TextInput
-              radius="md"
-              label="Your Email"
-              placeholder="Email address"
-              {...form.getInputProps("email")}
-              withAsterisk
-            />
-            <Textarea
-              mt={20}
-              radius="md"
-              placeholder="Your message"
-              label="Your message"
-              {...form.getInputProps("message")}
-              withAsterisk
-            />
-            <Flex direction="row" justify="flex-end" mt={20}>
-              <Group>
-                {" "}
-                <Button
-                  color="gray"
-                  radius="md"
-                  leftIcon={<MdOutlineClose />}
-                  variant="filled"
-                  onClick={() => clearForm()}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  radius="md"
-                  leftIcon={<IoSend />}
-                  variant="filled"
-                  type="submit"
-                >
-                  Send Message
-                </Button>
-              </Group>
-            </Flex>
-          </form>
-        </Card>
+        <Box id="reachOutSection">
+          <Text mb={20} weight={600} size={40}>
+            Reach Out
+          </Text>
+          <Card className="reach-out-card" shadow="sm" radius="lg" withBorder>
+            <form onSubmit={form.onSubmit((values) => sendEmail(values))}>
+              <Text sx={{ marginBottom: 30 }} size="sm" weight={700}>
+                Send me a message
+              </Text>
+              <TextInput
+                radius="md"
+                label="Your Email"
+                placeholder="Email address"
+                {...form.getInputProps("email")}
+                withAsterisk
+              />
+              <Textarea
+                mt={20}
+                radius="md"
+                placeholder="Your message"
+                label="Your message"
+                {...form.getInputProps("message")}
+                withAsterisk
+              />
+              <Flex direction="row" justify="flex-end" mt={20}>
+                <Group>
+                  {" "}
+                  <Button
+                    color="gray"
+                    radius="xl"
+                    leftIcon={<MdOutlineClose />}
+                    variant="light"
+                    onClick={() => clearForm()}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    size="sm"
+                    radius="xl"
+                    color="grape"
+                    leftIcon={<IoSend />}
+                    variant="filled"
+                    type="submit"
+                  >
+                    Send Message
+                  </Button>
+                </Group>
+              </Flex>
+            </form>
+          </Card>
+        </Box>
       </Flex>
     </ReachOutContainer>
   );

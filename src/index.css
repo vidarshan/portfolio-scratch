@@ -86,3 +86,7 @@ code {
 .plus {
   margin: 0 5px;
 }
+
+.mantine-Button-label{
+  font-weight: 700;
+}

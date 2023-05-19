@@ -127,7 +127,7 @@ function App() {
                 color="yellow"
                 size={largeScreen ? "lg" : "sm"}
                 radius="xl"
-                variant="outline"
+                variant="filled"
                 onClick={() =>
                   setColorScheme(colorScheme === "dark" ? "light" : "dark")
                 }
