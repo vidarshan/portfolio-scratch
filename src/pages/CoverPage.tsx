@@ -16,42 +16,18 @@ const CoverPage = () => {
 
   return (
     <CoverPageContainer>
-      <Transition
-        mounted={opened}
-        transition="slide-right"
-        duration={200}
-        timingFunction="ease"
-      >
-        {(styles) => (
-          <Text weight={600} size={largeScreen ? 50 : 25} style={styles}>
-            Hello
-          </Text>
-        )}
-      </Transition>
-      <Transition
-        mounted={opened}
-        transition="slide-right"
-        duration={400}
-        timingFunction="ease"
-      >
-        {(styles) => (
-          <Text weight={600} size={largeScreen ? 50 : 26} style={styles}>
-            I'm Vidarshan
-          </Text>
-        )}
-      </Transition>
-      <Transition
-        mounted={opened}
-        transition="slide-right"
-        duration={600}
-        timingFunction="ease"
-      >
-        {(styles) => (
-          <Text weight={600} size={largeScreen ? 50 : 26} style={styles}>
-            A Software Engineer
-          </Text>
-        )}
-      </Transition>
+      <Text weight={600} size={largeScreen ? 50 : 25}>
+        Hello
+      </Text>
+
+      <Text weight={600} size={largeScreen ? 50 : 26}>
+        I'm Vidarshan
+      </Text>
+
+      <Text weight={600} size={largeScreen ? 50 : 26}>
+        A Software Engineer
+      </Text>
+
       {os === "macos" || os === "windows" || os === "linux" ? (
         <Flex align="center">
           <Kbd>{os === "macos" ? <BsCommand /> : "Ctrl"}</Kbd>

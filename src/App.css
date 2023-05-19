@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+html{
+  scroll-behavior: smooth;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +42,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.mantine-List-itemWrapper{
+  font-weight: 600;
+}
+
+.mantine-Card-root{
+  height: 100%;
+}
+
+.reach-out-card{
+ height: fit-content;
 }

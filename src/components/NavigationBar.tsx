@@ -5,15 +5,13 @@ import {
   BiBriefcaseAlt2,
   BiCategory,
   BiMessageAlt,
-  BiMoon,
-  BiSun,
   BiUser,
 } from "react-icons/bi";
-import { AiOutlineGithub } from "react-icons/ai";
 import NavigationItem from "./NavigationItem";
 import { useLocalStorage } from "@mantine/hooks";
 import { ColorScheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
+import { motion } from "framer-motion";
 
 const NavigationBar = () => {
   const largeScreen = useMediaQuery("(min-width: 60em)");
@@ -22,6 +20,26 @@ const NavigationBar = () => {
     defaultValue: "light",
     getInitialValueInEffect: true,
   });
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
 
   return (
     <NavigationBarContainer background={colorScheme}>

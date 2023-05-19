@@ -1,104 +1,137 @@
 import {
   ActionIcon,
   Badge,
+  Box,
   Button,
   Card,
+  Center,
   Collapse,
   Container,
   Flex,
   Grid,
   Group,
   Image,
+  SegmentedControl,
+  Spoiler,
   Text,
 } from "@mantine/core";
 import { useState } from "react";
 import { SiGithub } from "react-icons/si";
 import { projects } from "../data/projects";
 import f from "../images/techstop.webp";
+import { BiMobileAlt } from "react-icons/bi";
+import { GrProjects, GrList } from "react-icons/gr";
 
 const ProjectPage = () => {
   const [opened, setOpened] = useState(false);
+  const [selectedSegment, setSelectedSegment] = useState("projects");
 
   return (
     <Container mt={120}>
       <Text weight={600} size={40}>
         Projects
       </Text>
-      <Grid>
-        {projects.map((project) => {
-          return (
-            <Grid.Col key={project.id} xs={12} sm={6} md={6} lg={6} xl={6}>
-              <Card shadow="sm" padding="lg" radius="md" withBorder>
-                <Card.Section sx={{ position: "relative" }}>
-                  <ActionIcon
-                    sx={{
-                      position: "absolute",
-                      zIndex: 1000,
-                      right: 4,
-                      top: 4,
-                    }}
-                    color="blue"
-                    variant="light"
-                    radius="xl"
-                    size="lg"
-                  >
-                    <SiGithub />
-                  </ActionIcon>
-                  <ActionIcon
-                    sx={{
-                      position: "absolute",
-                      zIndex: 1000,
-                      right: 40,
-                      top: 4,
-                      marginRight: 10,
-                    }}
-                    color="blue"
-                    variant="light"
-                    radius="xl"
-                    size="lg"
-                  >
-                    <SiGithub />
-                  </ActionIcon>
-                  <Image src={f} height={200} alt="Norway" />
-                </Card.Section>
-                <Group position="apart" mt="md" mb="xs">
-                  <Text weight={500}>{project.name}</Text>
-                  <Badge color="pink" variant="filled">
-                    {project.tags}
-                  </Badge>
-                </Group>
-                <Group position="apart" mt="md" mb="xs">
-                  <Text weight={500}>{project.description}</Text>
-                </Group>
-                <Group mt="md">
-                  {project.technologies.map((tech) => {
-                    return (
-                      <Badge
-                        key={tech.id}
-                        color={tech.color}
-                        size="md"
-                        variant="filled"
-                      >
-                        {tech.name}
-                      </Badge>
-                    );
-                  })}
-                </Group>
-              </Card>
-            </Grid.Col>
-          );
-        })}
-      </Grid>
-      <Group position="center" mb={5}>
-        <Button variant="light" radius="xl" onClick={() => setOpened(!opened)}>
-          {opened ? "Hide" : "Expand"} Project Archive
-        </Button>
-      </Group>
-      <Collapse
-        in={opened}
-        transitionDuration={100}
+      <SegmentedControl
+        radius="xl"
+        value={selectedSegment}
+        onChange={(e) => setSelectedSegment(e)}
+        transitionDuration={500}
         transitionTimingFunction="linear"
-      >
+        mt={50}
+        data={[
+          {
+            value: "projects",
+            label: (
+              <Center>
+                <GrProjects size="1rem" />
+                <Box ml={10}>Projects</Box>
+              </Center>
+            ),
+          },
+          {
+            value: "archive",
+            label: (
+              <Center>
+                <GrList size="1rem" />
+                <Box ml={10}>Projects Archive</Box>
+              </Center>
+            ),
+          },
+        ]}
+      />
+      {selectedSegment === "projects" ? (
+        <Grid gutter="xl">
+          {projects.map((project) => {
+            return (
+              <Grid.Col key={project.id} xs={12} sm={6} md={6} lg={6} xl={6}>
+                <Card shadow="xl" padding="sm" radius="lg">
+                  <Card.Section sx={{ position: "relative" }}>
+                    <ActionIcon
+                      sx={{
+                        position: "absolute",
+                        zIndex: 1000,
+                        right: 8,
+                        top: 8,
+                      }}
+                      color="blue"
+                      variant="filled"
+                      radius="xl"
+                      size="lg"
+                    >
+                      <BiMobileAlt />
+                    </ActionIcon>
+                    <ActionIcon
+                      sx={{
+                        position: "absolute",
+                        zIndex: 1000,
+                        right: 40,
+                        top: 8,
+                        marginRight: 10,
+                      }}
+                      color="blue"
+                      variant="filled"
+                      radius="xl"
+                      size="lg"
+                    >
+                      <SiGithub />
+                    </ActionIcon>
+                    <Image src={f} height={300} alt="Norway" />
+                  </Card.Section>
+                  <Group position="apart" mt="md" mb="xs">
+                    <Text weight={500}>{project.name}</Text>
+                    <Badge color="pink" variant="filled">
+                      {project.tags}
+                    </Badge>
+                  </Group>
+                  <Group position="apart" mt="md" mb="xs">
+                    <Spoiler
+                      maxHeight={120}
+                      showLabel="Show more"
+                      hideLabel="Hide"
+                    >
+                      <Text weight={500}>{project.description}</Text>
+                    </Spoiler>
+                  </Group>
+                  <Group mt={30}>
+                    {project.technologies.map((tech) => {
+                      return (
+                        <Badge
+                          key={tech.id}
+                          color={tech.color}
+                          size="sm"
+                          variant="filled"
+                        >
+                          {tech.name}
+                        </Badge>
+                      );
+                    })}
+                  </Group>
+                </Card>
+              </Grid.Col>
+            );
+          })}
+        </Grid>
+      ) : (
         <Card
           className="archive-card"
           sx={{ display: "flex" }}
@@ -145,7 +178,7 @@ const ProjectPage = () => {
             </Flex>
           </Flex>
         </Card>
-      </Collapse>
+      )}
     </Container>
   );
 };
