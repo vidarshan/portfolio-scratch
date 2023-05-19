@@ -38,7 +38,6 @@ import {
   BiUser,
 } from "react-icons/bi";
 import { ThemeSwitchContainer, AppShell } from "./styles/Main";
-import { Link } from "react-scroll";
 import { useEffect, useMemo, useRef } from "react";
 import { NavigationBarContainer } from "./styles/NavigationBar";
 import { NavigationItemContainer } from "./styles/NavigationItemContainer";
@@ -108,9 +107,6 @@ function App() {
     }
   };
 
-  console.log("scrollPositions[1]", scrollPositions[1]?.position);
-  console.log("window.scrollY", window.scrollY);
-
   return (
     <Box ref={pageRef}>
       <ColorSchemeProvider
@@ -118,11 +114,13 @@ function App() {
         toggleColorScheme={toggleColorScheme}
       >
         <MantineProvider
-          theme={{ colorScheme }}
+          theme={{
+            colorScheme,
+          }}
           withGlobalStyles
           withNormalizeCSS
         >
-          <Notifications position="top-center" />
+          <Notifications position="bottom-left" />
           <AppShell>
             <ThemeSwitchContainer>
               <ActionIcon

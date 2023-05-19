@@ -18,15 +18,15 @@ import { IoMdCheckmark, IoMdClose } from "react-icons/io";
 const ReachOut = () => {
   const form = useForm({
     initialValues: {
-      email: "v@gmail.com",
-      comment: "ewfefewbfwebfhy",
+      email: "",
+      message: "",
       termsOfService: false,
     },
     validate: {
       email: (value) =>
         /^\S+@\S+$/.test(value) ? null : "Enter a valid email address",
-      comment: (value) =>
-        value.trim().length >= 5 ? null : "Enter a valid message",
+      message: (value) =>
+        value?.trim()?.length >= 5 ? null : "Enter a valid message",
     },
   });
 
@@ -36,8 +36,6 @@ const ReachOut = () => {
 
   const sendEmail = async (values: any) => {
     const { email, message } = values;
-    console.log("🚀 ~ file: ReachOut.tsx:37 ~ sendEmail ~ values:", values);
-
     var formInfo = {
       email,
       message,
@@ -47,25 +45,15 @@ const ReachOut = () => {
       notifications.show({
         id: "load-data",
         loading: true,
-        title: "Sending",
+        title: "Sending...",
         message: "Sending message to the inbox",
-        autoClose: false,
+        autoClose: 20000,
+        radius: "md",
         withCloseButton: false,
-        radius: "lg",
-        styles: (theme) => ({
-          root: {
-            backgroundColor: theme.colors.blue[6],
-            borderColor: theme.colors.blue[6],
-
-            "&::before": { backgroundColor: theme.white },
-          },
-
-          title: { color: theme.white },
-          description: { color: theme.white },
-          closeButton: {
-            color: theme.white,
-            "&:hover": { backgroundColor: theme.colors.blue[7] },
-          },
+        withBorder: true,
+        styles: () => ({
+          title: { fontWeight: 700 },
+          description: { fontWeight: 600 },
         }),
       });
 
@@ -80,51 +68,33 @@ const ReachOut = () => {
         notifications.update({
           id: "load-data",
           color: "teal",
-          title: "Sent",
+          title: "Sent!",
           message: "Sent your message to the inbox",
           icon: <IoMdCheckmark size="1rem" />,
-          autoClose: 2000,
-          radius: "lg",
-          styles: (theme) => ({
-            root: {
-              backgroundColor: theme.colors.blue[6],
-              borderColor: theme.colors.blue[6],
-
-              "&::before": { backgroundColor: theme.white },
-            },
-
-            title: { color: theme.white },
-            description: { color: theme.white },
-            closeButton: {
-              color: theme.white,
-              "&:hover": { backgroundColor: theme.colors.blue[7] },
-            },
+          autoClose: 20000,
+          withCloseButton: false,
+          withBorder: true,
+          radius: "md",
+          styles: () => ({
+            title: { fontWeight: 700 },
+            description: { fontWeight: 600 },
           }),
         });
       }
     } catch (exception) {
       notifications.update({
         id: "load-data",
-        color: "teal",
+        color: "red",
         title: "Oops!",
         message: "Failed. Please try again.",
         icon: <IoMdClose size="1rem" />,
-        autoClose: 2000,
-        radius: "lg",
-        styles: (theme) => ({
-          root: {
-            backgroundColor: theme.colors.blue[6],
-            borderColor: theme.colors.blue[6],
-
-            "&::before": { backgroundColor: theme.white },
-          },
-
-          title: { color: theme.white },
-          description: { color: theme.white },
-          closeButton: {
-            color: theme.white,
-            "&:hover": { backgroundColor: theme.colors.blue[7] },
-          },
+        autoClose: 20000,
+        withCloseButton: false,
+        withBorder: true,
+        radius: "md",
+        styles: () => ({
+          title: { fontWeight: 700 },
+          description: { fontWeight: 600 },
         }),
       });
     }
@@ -152,9 +122,9 @@ const ReachOut = () => {
             <Textarea
               mt={20}
               radius="md"
-              placeholder="Your comment"
-              label="Your comment"
-              {...form.getInputProps("comment")}
+              placeholder="Your message"
+              label="Your message"
+              {...form.getInputProps("message")}
               withAsterisk
             />
             <Flex direction="row" justify="flex-end" mt={20}>
