@@ -33,6 +33,7 @@ const ProjectPage = () => {
       </Text>
       <SegmentedControl
         radius="xl"
+        color="red"
         value={selectedSegment}
         onChange={(e) => setSelectedSegment(e)}
         transitionDuration={500}

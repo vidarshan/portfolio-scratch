@@ -33,7 +33,12 @@ const WorkPage = ({ ref }: any) => {
         <Flex direction="row" align="center" justify="space-between">
           <Flex direction="row" align="center">
             {" "}
-            <ThemeIcon radius="xl" size="md" sx={{ marginRight: 10 }}>
+            <ThemeIcon
+              color="red"
+              radius="xl"
+              size="md"
+              sx={{ marginRight: 10 }}
+            >
               <RiNumber1 />
             </ThemeIcon>
             <Flex direction="column">
@@ -43,7 +48,7 @@ const WorkPage = ({ ref }: any) => {
               <Text color="dimmed" size="xs" weight={800} tt="uppercase">
                 Contribution: Full Stack Developer
               </Text>
-              <Text color="orange" weight={700} size="sm">
+              <Text color="red" weight={700} size="sm">
                 Excalibur Systems
               </Text>{" "}
               <Text size="xs" weight={700}>
@@ -95,7 +100,12 @@ const WorkPage = ({ ref }: any) => {
       <Card mb={50} shadow="xl" padding="sm" radius="lg">
         <Flex direction="row" align="center" justify="space-between">
           <Flex direction="row" align="center">
-            <ThemeIcon radius="xl" size="md" sx={{ marginRight: 10 }}>
+            <ThemeIcon
+              color="red"
+              radius="xl"
+              size="md"
+              sx={{ marginRight: 10 }}
+            >
               <RiNumber2 />
             </ThemeIcon>
             <Flex direction="column">
@@ -160,7 +170,7 @@ const WorkPage = ({ ref }: any) => {
         </Container>
         <Divider />
         <Flex direction="row" align="center">
-          <ThemeIcon radius="xl" size="md" sx={{ marginRight: 10 }}>
+          <ThemeIcon color="red" radius="xl" size="md" sx={{ marginRight: 10 }}>
             <RiNumber3 />
           </ThemeIcon>
           <Flex direction="column">
@@ -222,7 +232,12 @@ const WorkPage = ({ ref }: any) => {
       <Card mb={50} shadow="xl" padding="sm" radius="lg">
         <Flex direction="row" align="center" justify="space-between">
           <Flex direction="row" align="center">
-            <ThemeIcon radius="xl" size="md" sx={{ marginRight: 10 }}>
+            <ThemeIcon
+              color="red"
+              radius="xl"
+              size="md"
+              sx={{ marginRight: 10 }}
+            >
               <RiNumber4 />
             </ThemeIcon>
             <Flex direction="column">
@@ -281,7 +296,12 @@ const WorkPage = ({ ref }: any) => {
       <Card shadow="xl" padding="sm" radius="lg">
         <Flex direction="row" align="center" justify="space-between">
           <Flex direction="row" align="center">
-            <ThemeIcon radius="xl" size="md" sx={{ marginRight: 10 }}>
+            <ThemeIcon
+              color="red"
+              radius="xl"
+              size="md"
+              sx={{ marginRight: 10 }}
+            >
               <RiNumber5 />
             </ThemeIcon>
             <Flex direction="column">
@@ -299,7 +319,7 @@ const WorkPage = ({ ref }: any) => {
               </Text>
             </Flex>
           </Flex>
-          <ActionIcon color="blue" radius="xl" variant="filled" size="md">
+          <ActionIcon color="red" radius="xl" variant="light" size="md">
             <BiLinkExternal />
           </ActionIcon>
         </Flex>

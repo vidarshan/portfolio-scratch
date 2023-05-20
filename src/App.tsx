@@ -99,13 +99,19 @@ function App() {
     });
   }, [scrollPositions]);
 
-  const getPositionRange = (windowScroll: number, scroll: number) => {
-    if (windowScroll <= scroll) {
+  const getPositionRange = (
+    windowScroll: number,
+    current: number,
+    next: number
+  ) => {
+    if (windowScroll >= current && windowScroll <= next) {
       return "red";
     } else {
       return "blue";
     }
   };
+
+  console.log(scrollPositions);
 
   return (
     <Box ref={pageRef}>
@@ -161,7 +167,8 @@ function App() {
                   <ActionIcon
                     color={getPositionRange(
                       window.scrollY,
-                      scrollPositions[0]?.position
+                      scrollPositions[0]?.position,
+                      scrollPositions[1]?.position
                     )}
                     size={largeScreen ? "lg" : "md"}
                     radius="xl"
@@ -175,7 +182,8 @@ function App() {
                   <ActionIcon
                     color={getPositionRange(
                       window.scrollY,
-                      scrollPositions[1]?.position
+                      scrollPositions[1]?.position,
+                      scrollPositions[2]?.position
                     )}
                     size={largeScreen ? "lg" : "md"}
                     radius="xl"
@@ -189,7 +197,8 @@ function App() {
                   <ActionIcon
                     color={getPositionRange(
                       window.scrollY,
-                      scrollPositions[2]?.position
+                      scrollPositions[2]?.position,
+                      scrollPositions[3]?.position
                     )}
                     size={largeScreen ? "lg" : "md"}
                     radius="xl"
@@ -203,7 +212,8 @@ function App() {
                   <ActionIcon
                     color={getPositionRange(
                       window.scrollY,
-                      scrollPositions[3]?.position
+                      scrollPositions[3]?.position,
+                      scrollPositions[4]?.position
                     )}
                     size={largeScreen ? "lg" : "md"}
                     radius="xl"
@@ -217,7 +227,8 @@ function App() {
                   <ActionIcon
                     color={getPositionRange(
                       window.scrollY,
-                      scrollPositions[4]?.position
+                      scrollPositions[4]?.position,
+                      scrollPositions[5]?.position
                     )}
                     size={largeScreen ? "lg" : "md"}
                     radius="xl"
@@ -231,7 +242,8 @@ function App() {
                   <ActionIcon
                     color={getPositionRange(
                       window.scrollY,
-                      scrollPositions[5]?.position
+                      scrollPositions[5]?.position,
+                      window.pageYOffset
                     )}
                     size={largeScreen ? "lg" : "md"}
                     radius="xl"

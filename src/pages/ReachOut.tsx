@@ -1,4 +1,5 @@
 import {
+  ActionIcon,
   Box,
   Button,
   Card,
@@ -131,20 +132,19 @@ const ReachOut = () => {
               />
               <Flex direction="row" justify="flex-end" mt={20}>
                 <Group>
-                  {" "}
-                  <Button
-                    color="gray"
+                  <ActionIcon
+                    size="lg"
                     radius="xl"
-                    leftIcon={<MdOutlineClose />}
-                    variant="light"
+                    color="gray"
+                    variant="filled"
                     onClick={() => clearForm()}
                   >
-                    Cancel
-                  </Button>
+                    <MdOutlineClose />
+                  </ActionIcon>
                   <Button
                     size="sm"
                     radius="xl"
-                    color="grape"
+                    color="red"
                     leftIcon={<IoSend />}
                     variant="filled"
                     type="submit"
